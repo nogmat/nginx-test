@@ -13,9 +13,11 @@ spec:
             labels:
                 app: nginx
         spec:
+            imagePullSecrets:
+            - name: harbor-credentials
             containers:
             - name: nginx
-              image: nginx:latest
+              image: harbor.harbor.svc.cluster.local:5000/library/nginx:latest
               env:
               - name: ENV
                 value: dev
